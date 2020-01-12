@@ -1,11 +1,11 @@
 'use strict'
 
-const User = use('App/Models/User');
-
-class SessionController {
+class SessionUserController {
 
   async store ({ request, auth }) {
     const { cpf, password } = request.all();
+
+    // console.log(cpf)
 
     const token = await auth.attempt(cpf, password)
 
@@ -14,4 +14,4 @@ class SessionController {
 
 }
 
-module.exports = SessionController
+module.exports = SessionUserController

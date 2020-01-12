@@ -21,4 +21,7 @@ const Route = use('Route')
 // })
 
 Route.post('/users', 'UserController.create')
-Route.post('/sessions', 'SessionController.store')
+Route.post('/sessions/user', 'SessionUserController.store').middleware['auth:user']
+
+Route.post('/admins', 'AdminController.create')
+Route.post('/sessions/admin', 'SessionAdminController.store').middleware['auth:admin']
